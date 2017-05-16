@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Link, hasHistory } from 'react-router';
+import { Link, hashHistory } from 'react-router';
 
 class AuthForm extends React.Component {
   constructor(props){
@@ -13,7 +13,7 @@ class AuthForm extends React.Component {
     };
 
     this.update = this.update.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
+    // this.handleSubmit = this.handleSubmit.bind(this);
     this.formToggle = this.formToggle.bind(this);
   }
 
@@ -39,4 +39,14 @@ class AuthForm extends React.Component {
       </button>
     );
   }
+
+  render () {
+    return (
+      <div>
+        I am login form
+      </div>
+    );
+  }
 }
+
+export default AuthForm;
