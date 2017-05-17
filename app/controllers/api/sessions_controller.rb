@@ -1,6 +1,6 @@
-class Api::SessionController < ApplicationController
+class Api::SessionsController < ApplicationController
 
-  def create_table
+  def create
     @user = User.find_by_credentials(
     user_params[:username],
     user_params[:password]
@@ -29,5 +29,5 @@ class Api::SessionController < ApplicationController
   def user_params
     params.require(:user).permit(:username, :password)
   end
-  
+
 end

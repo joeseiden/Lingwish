@@ -16,7 +16,7 @@ const App = (props) => (
   <div>
     <header>
       <Link to="/" className="header-link">
-        <h1>lɪŋ'ɡwɪʃ</h1>
+        <h1>l&#x026A;&#x014B;&#x0261;w&#x026A;&#x0283;</h1>
       </Link>
     </header>
     <Switch>
