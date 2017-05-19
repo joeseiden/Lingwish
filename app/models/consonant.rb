@@ -1,0 +1,2 @@
+class Consonant < ApplicationRecord
+end
