@@ -10,10 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170512215416) do
+ActiveRecord::Schema.define(version: 20170519222558) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "consonants", force: :cascade do |t|
+    t.string   "point",      null: false
+    t.string   "method",     null: false
+    t.boolean  "voiced",     null: false
+    t.string   "char",       null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["point", "method", "voiced", "char"], name: "index_consonants_on_point_and_method_and_voiced_and_char", unique: true, using: :btree
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "username",        null: false
@@ -23,6 +33,16 @@ ActiveRecord::Schema.define(version: 20170512215416) do
     t.datetime "updated_at",      null: false
     t.index ["session_token"], name: "index_users_on_session_token", unique: true, using: :btree
     t.index ["username"], name: "index_users_on_username", unique: true, using: :btree
+  end
+
+  create_table "vowels", force: :cascade do |t|
+    t.string   "openness",   null: false
+    t.string   "frontness",  null: false
+    t.boolean  "rounded",    null: false
+    t.string   "char",       null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["frontness", "openness", "rounded", "char"], name: "index_vowels_on_frontness_and_openness_and_rounded_and_char", unique: true, using: :btree
   end
 
 end
