@@ -5,6 +5,6 @@ class Vowel < ApplicationRecord
   validates :frontness, inclusion: { in: %w(Front Near-Front Central Near-Back Back)}
 
   def name
-    @name ||= "#{rounded ? 'Rounded' : 'Unrounded'} #{openness} #{frontness} Vowel"
+    @name ||= "#{openness} #{frontness} #{rounded ? 'Rounded' : 'Unrounded'} Vowel"
   end
 end

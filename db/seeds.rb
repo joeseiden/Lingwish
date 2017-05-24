@@ -6,6 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 Consonant.destroy_all
+Vowel.destroy_all
 
 Consonant.create!([
   { point: "Bilabial", method: "Plosive", voiced: false, char: "p" },
@@ -66,5 +67,36 @@ Consonant.create!([
   { point: "Pharyngeal", method: "Fricative", voiced: true, char: "ʕ" },
   { point: "Glottal", method: "Plosive", voiced: false, char: "ʔ" },
   { point: "Glottal", method: "Fricative", voiced: false, char: "h" },
-  { point: "Glottal", method: "Fricative", voiced: true, char: "ɦ" },
+  { point: "Glottal", method: "Fricative", voiced: true, char: "ɦ" }
+  ])
+
+Vowel.create!([
+  { openness: "Close", frontness: "Front", rounded: false, char: "i" },
+  { openness: "Close", frontness: "Front", rounded: true, char: "y" },
+  { openness: "Close", frontness: "Central", rounded: false, char: "ɨ" },
+  { openness: "Close", frontness: "Central", rounded: true, char: "ʉ" },
+  { openness: "Close", frontness: "Back", rounded: false, char: "ɯ" },
+  { openness: "Close", frontness: "Back", rounded: true, char: "u" },
+  { openness: "Near-Close", frontness: "Near-Front", rounded: false, char: "ɪ" },
+  { openness: "Near-Close", frontness: "Near-Front", rounded: true, char: "ʏ" },
+  { openness: "Near-Close", frontness: "Near-Back", rounded: true, char: "ʊ" },
+  { openness: "Close-Mid", frontness: "Front", rounded: false, char: "e" },
+  { openness: "Close-Mid", frontness: "Front", rounded: true, char: "ø" },
+  { openness: "Close-Mid", frontness: "Central", rounded: false, char: "ɘ" },
+  { openness: "Close-Mid", frontness: "Central", rounded: true, char: "ɵ" },
+  { openness: "Close-Mid", frontness: "Back", rounded: false, char: "ɤ" },
+  { openness: "Close-Mid", frontness: "Back", rounded: true, char: "o" },
+  { openness: "Mid", frontness: "Central", rounded: false, char: "ə" },
+  { openness: "Open-Mid", frontness: "Front", rounded: false, char: "ɛ" },
+  { openness: "Open-Mid", frontness: "Front", rounded: true, char: "œ" },
+  { openness: "Open-Mid", frontness: "Central", rounded: false, char: "ɜ" },
+  { openness: "Open-Mid", frontness: "Central", rounded: true, char: "ɞ" },
+  { openness: "Open-Mid", frontness: "Back", rounded: false, char: "ʌ" },
+  { openness: "Open-Mid", frontness: "Back", rounded: true, char: "ɔ" },
+  { openness: "Near-Open", frontness: "Front", rounded: false, char: "æ" },
+  { openness: "Near-Open", frontness: "Central", rounded: false, char: "ɐ" },
+  { openness: "Open", frontness: "Front", rounded: false, char: "a" },
+  { openness: "Open", frontness: "Front", rounded: true, char: "ɶ" },
+  { openness: "Open", frontness: "Back", rounded: false, char: "ɑ" },
+  { openness: "Open", frontness: "Back", rounded: true, char: "ɒ" }
   ])
