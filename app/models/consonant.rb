@@ -5,6 +5,6 @@ class Consonant < ApplicationRecord
   validates :method, inclusion: { in: %w(Plosive Nasal Trill Tap Fricative Lateral-Fricative Approximant Lateral-Approximant) }
 
   def name
-    @name ||= "#{self.voiced ? "Voiced" : "Unvoiced"} #{point} #{method}"
+    @name ||= "#{self.voiced ? 'Voiced' : 'Unvoiced'} #{point} #{method}"
   end
 end

@@ -10,5 +10,6 @@ class Api::VowelsController < ApplicationController
       render "api/vowel/show"
     else
       render json: @vowel.errors.full_messages, status: 404
+    end
   end
 end
