@@ -1,6 +1,10 @@
 class Api::ConsonantsController < ApplicationController
   def index
-    @consonants = Consonant.all
+    if params[:inventory]
+      @consonants = Consonant.find(params[:inventory])
+    else
+      @consonants = Consonant.all
+    end
     render "api/consonants/index"
   end
 

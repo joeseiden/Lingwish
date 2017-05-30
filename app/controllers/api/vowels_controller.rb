@@ -1,6 +1,10 @@
 class Api::VowelsController < ApplicationController
   def index
-    @vowels = Vowel.all
+    if params[:inventory]
+      @vowels = Vowel.find(params[:inventory])
+    else
+      @vowels = Vowel.all
+    end
     render "api/vowels/index"
   end
 

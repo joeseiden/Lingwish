@@ -5,10 +5,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-Consonant.destroy_all
-Vowel.destroy_all
-
-Consonant.create!([
+Consonant.create([
   { point: "Bilabial", method: "Plosive", voiced: false, char: "p" },
   { point: "Bilabial", method: "Plosive", voiced: true, char: "b" },
   { point: "Bilabial", method: "Nasal", voiced: true, char: "m" },
@@ -70,7 +67,7 @@ Consonant.create!([
   { point: "Glottal", method: "Fricative", voiced: true, char: "ɦ" }
   ])
 
-Vowel.create!([
+Vowel.create([
   { openness: "Close", frontness: "Front", rounded: false, char: "i" },
   { openness: "Close", frontness: "Front", rounded: true, char: "y" },
   { openness: "Close", frontness: "Central", rounded: false, char: "ɨ" },
