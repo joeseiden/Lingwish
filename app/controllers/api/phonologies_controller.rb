@@ -1,10 +1,10 @@
 class Api::PhonologiesController < ApplicationController
 
   def update
-    @phonology = Phonology.includes(:conlang).find(params[:id])
+    @phonology = Phonology.find(params[:id])
 
     if @phonology.update(phonology_params)
-      @conlang = @phonology.conlang
+      @conlang = Conlang.find(:conlang_id)
       render "api/conlangs/show"
     else
       render json: @phonology.errors.full_messages, status: 401
