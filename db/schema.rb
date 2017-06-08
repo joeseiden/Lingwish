@@ -10,10 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170519222558) do
+ActiveRecord::Schema.define(version: 20170607205825) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "conlangs", force: :cascade do |t|
+    t.string   "name",       null: false
+    t.integer  "user_id",    null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_conlangs_on_user_id", using: :btree
+  end
 
   create_table "consonants", force: :cascade do |t|
     t.string   "point",      null: false
@@ -23,6 +31,14 @@ ActiveRecord::Schema.define(version: 20170519222558) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["point", "method", "voiced", "char"], name: "index_consonants_on_point_and_method_and_voiced_and_char", unique: true, using: :btree
+  end
+
+  create_table "phonologies", force: :cascade do |t|
+    t.integer  "consonant_inventory", default: [],              array: true
+    t.integer  "vowel_inventory",     default: [],              array: true
+    t.integer  "conlang_id",                       null: false
+    t.datetime "created_at",                       null: false
+    t.datetime "updated_at",                       null: false
   end
 
   create_table "users", force: :cascade do |t|
