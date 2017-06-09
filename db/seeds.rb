@@ -97,3 +97,6 @@ Vowel.create([
   { openness: "Open", frontness: "Back", rounded: false, char: "ɑ" },
   { openness: "Open", frontness: "Back", rounded: true, char: "ɒ" }
   ])
+User.destroy_all
+barry = User.create!(username: "barry_bluejeans", password: "password")
+conlang = barry.conlangs.create!(name: "Test_conlang")
