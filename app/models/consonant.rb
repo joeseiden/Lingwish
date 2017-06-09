@@ -1,3 +1,16 @@
+# == Schema Information
+#
+# Table name: consonants
+#
+#  id         :integer          not null, primary key
+#  point      :string           not null
+#  method     :string           not null
+#  voiced     :boolean          not null
+#  char       :string           not null
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+
 class Consonant < ApplicationRecord
   validates :point, :method, :char, presence: true
   validates :char, uniqueness: true

@@ -1,3 +1,14 @@
+# == Schema Information
+#
+# Table name: conlangs
+#
+#  id         :integer          not null, primary key
+#  name       :string           not null
+#  user_id    :integer          not null
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+
 class Conlang < ApplicationRecord
   validates :name, presence: true
   belongs_to :user
@@ -9,6 +20,6 @@ class Conlang < ApplicationRecord
   private
 
   def create_phonology
-    self.create_phonology!
+    self.create_phonology
   end
 end
