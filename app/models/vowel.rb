@@ -7,4 +7,8 @@ class Vowel < ApplicationRecord
   def name
     @name ||= "#{openness} #{frontness} #{rounded ? 'Rounded' : 'Unrounded'} Vowel"
   end
+
+  def self.valid_vowel?(new_vow)
+    correct_vow = Vowel.find(new_vow["id"])
+  end
 end
