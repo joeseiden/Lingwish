@@ -1,5 +1,4 @@
 import * as ConlangAPIUtil from '../util/conlang_api_util';
-import * as PhonologyAPIUtil from '../util/phonology_api_util';
 
 import { receiveErrors } from './errors_actions';
 
@@ -14,12 +13,6 @@ export const requestAllConlangs = () => dispatch => (
 
 export const requestSingleConlang = id => dispatch => (
   ConlangAPIUtil.fetchSingleConlang(id)
-    .then(conlang => dispatch(receiveSingleConlang(conlang)),
-          err => dispatch(receiveErrors(err.responseJSON)))
-);
-
-export const updatePhonology = (userId, conlangId, id, phonology) => dispatch => (
-  PhonologyAPIUtil.updatePhonology(userId, conlangId, id, phonology)
     .then(conlang => dispatch(receiveSingleConlang(conlang)),
           err => dispatch(receiveErrors(err.responseJSON)))
 );
