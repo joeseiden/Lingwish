@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170607205825) do
+ActiveRecord::Schema.define(version: 20170613213628) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -59,6 +59,15 @@ ActiveRecord::Schema.define(version: 20170607205825) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["frontness", "openness", "rounded", "char"], name: "index_vowels_on_frontness_and_openness_and_rounded_and_char", unique: true, using: :btree
+  end
+
+  create_table "words", force: :cascade do |t|
+    t.string   "word",       null: false
+    t.string   "type"
+    t.text     "definition"
+    t.integer  "conlang_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end

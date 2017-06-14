@@ -2,7 +2,7 @@ class Api::PhonologiesController < ApplicationController
 
   def update
     @phonology = Phonology.find(params[:id])
-    
+
     if @phonology.update(phonology_params)
       @conlang = Conlang.find(:conlang_id)
       render "api/conlangs/show"
@@ -16,4 +16,5 @@ class Api::PhonologiesController < ApplicationController
   def phonology_params
     params.require(:phonology).permit(:consonant_inventory, :vowel_inventory)
   end
+  
 end
