@@ -1,7 +1,11 @@
 class Api::WordsController < ApplicationController
 
   def index
-    @words = Word.where(conlang_id: params[:conlang_id]).order(:name)
+    if params[:conlang_id]
+      @words = Word.where(conlang_id: params[:conlang_id]).order(:word)
+    else
+      @words = Word.includes(:conlang, :user).order(:word)
+    end
   end
 
   def show

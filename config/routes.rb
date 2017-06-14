@@ -7,10 +7,13 @@ Rails.application.routes.draw do
         resources :words, only: [:create, :update, :index, :show, :destroy]
       end
     end
-    resources :conlangs, only: [:index, :show]
+    resources :conlangs, only: [:index, :show] do
+      resources :words, only: [:index, :show]
+    end
     resource :session, only: [:create, :destroy]
     resources :consonants, only: [:index, :show]
     resources :vowels, only: [:index, :show]
+    resources :words, only: [:index, :show]
   end
 
   root "static_pages#root"

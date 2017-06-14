@@ -15,4 +15,5 @@ class Word < ApplicationRecord
   validates :word, :conlang_id, presence: true
 
   belongs_to :conlang
+  has_one :user, through: :conlang
 end
