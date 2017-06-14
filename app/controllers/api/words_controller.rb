@@ -23,7 +23,7 @@ class Api::WordsController < ApplicationController
     @word.conlang_id = params[:conlang_id]
 
     if @word.save
-      render "api/conlangs/show"
+      render "api/words/show"
     else
       render json: @word.errors.full_messages, status: 422
     end
