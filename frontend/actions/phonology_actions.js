@@ -13,4 +13,4 @@ export const updatePhonology = (userId, conlangId, id, phonology) => dispatch =>
 export const receivePhonology = phonology => ({
   type: RECEIVE_PHONOLOGY,
   phonology
-})
+});

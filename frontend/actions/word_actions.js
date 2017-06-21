@@ -7,6 +7,7 @@ export const RECEIVE_SINGLE_WORD = "RECEIVE_SINGLE_WORD";
 export const RECEIVE_WORDS = "RECEIVE_WORDS";
 export const RECEIVE_CONLANG_WORDS = "RECEIVE_CONLANG_WORDS";
 export const RECEIVE_SINGLE_CONLANG_WORD = "RECEIVE_SINGLE_CONLANG_WORD";
+export const REMOVE_CONLANG_WORD = "REMOVE_CONLANG_WORD";
 
 export const requestAllWords = () => dispatch => (
   WordAPIUtil.fetchAllWords()
@@ -38,6 +39,12 @@ export const updateWord = (userId, conlangId, id, word) => dispatch => (
           err => dispatch(receiveErrors(err.responseJSON)))
 );
 
+export const deleteWord = (userId, conlangId, id) => dispatch => (
+  WordAPIUtil.deleteWord(userId, conlangId, id)
+    .then(res => dispatch(removeConlangWord(res)),
+          err => dispatch(receiveErrors(err.responseJSON)))
+);
+
 export const receiveWords = words => ({
   type: RECEIVE_WORDS,
   words
@@ -57,3 +64,8 @@ export const receiveSingleConlangWord = word => ({
   type: RECEIVE_SINGLE_CONLANG_WORD,
   word
 });
+
+export const removeConlangWord = word => ({
+  type: REMOVE_CONLANG_WORD,
+  word
+})

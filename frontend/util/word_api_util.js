@@ -31,3 +31,10 @@ export const updateWord = (userId, conlangId, id, word) => (
     word
   })
 );
+
+export const deleteWord = (userId, conlangId, id) => (
+  $.ajax({
+    type: "DELETE",
+    url: `api/users/${userId}/conlangs/${conlangId}/words/${id}`
+  })
+)
