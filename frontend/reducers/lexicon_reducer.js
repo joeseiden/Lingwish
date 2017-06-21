@@ -1,6 +1,7 @@
 import {
   RECEIVE_CONLANG_WORDS,
-  RECEIVE_SINGLE_CONLANG_WORD
+  RECEIVE_SINGLE_CONLANG_WORD,
+  REMOVE_CONLANG_WORD
 } from '../actions/word_actions';
 
 const lexiconReducer = (state = [], action) => {
@@ -12,7 +13,7 @@ const lexiconReducer = (state = [], action) => {
       return [
         ...state,
         action.word
-      ]
+      ];
     case REMOVE_CONLANG_WORD:
       const idx = state.indexOf(action.word);
       if (idx !== -1) {
@@ -24,4 +25,4 @@ const lexiconReducer = (state = [], action) => {
     default:
       return state;
   }
-}
+};
