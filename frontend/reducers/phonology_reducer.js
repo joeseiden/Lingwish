@@ -1,6 +1,6 @@
 import {
   RECEIVE_PHONOLOGY
-} from '../phonology_actions';
+} from '../actions/phonology_actions';
 
 import merge from 'lodash/merge';
 

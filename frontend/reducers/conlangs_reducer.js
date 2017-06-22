@@ -10,7 +10,7 @@ import {
 
 import {
   RECEIVE_PHONOLOGY
-} from '../phonology_actions';
+} from '../actions/phonology_actions';
 
 import phonologyReducer from './phonology_reducer';
 import lexiconReducer from './lexicon_reducer';
@@ -24,6 +24,8 @@ const ConlangsReducer = (state = {}, action) => {
     case RECEIVE_CONLANGS:
       return action.conlangs;
     case RECEIVE_SINGLE_CONLANG:
+      console.log("Received single conlang");
+      console.log(action.conlang);
       return action.conlang;
     case RECEIVE_CONLANG_WORDS:
       nextState.lexicon = lexiconReducer(undefined, action);
