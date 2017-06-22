@@ -2,12 +2,12 @@ import { combineReducers } from 'redux';
 
 import SessionReducer from './session_reducer';
 import ErrorsReducer from './errors_reducer';
-import conlangDetailReducer from './conlang_detail_reducer';
+import ConlangsReducer from './conlangs_reducer';
 
 const RootReducer = combineReducers({
   session: SessionReducer,
   errors: ErrorsReducer,
-  conlangDetail: conlangDetailReducer
+  conlangs: ConlangsReducer
 });
 
 export default RootReducer;

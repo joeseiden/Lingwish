@@ -1,4 +1,5 @@
 import {
+  RECEIVE_CONLANGS,
   RECEIVE_SINGLE_CONLANG
 } from '../actions/conlang_actions';
 
@@ -16,13 +17,14 @@ import lexiconReducer from './lexicon_reducer';
 
 import merge from 'lodash/merge';
 
-const conlangDetailReducer = (state = {}, action) => {
+const ConlangsReducer = (state = {}, action) => {
   Object.freeze(state);
   let nextState = merge({}, state);
   switch (action.type) {
+    case RECEIVE_CONLANGS:
+      return action.conlangs;
     case RECEIVE_SINGLE_CONLANG:
-      let newConlang = action.conlang;
-      return merge({}, newConlang);
+      return action.conlang;
     case RECEIVE_CONLANG_WORDS:
       nextState.lexicon = lexiconReducer(undefined, action);
       return nextState;
@@ -37,4 +39,4 @@ const conlangDetailReducer = (state = {}, action) => {
   }
 };
 
-export default conlangDetailReducer;
+export default ConlangsReducer;
