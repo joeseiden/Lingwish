@@ -37,7 +37,6 @@ class ConlangShow extends React.Component {
       </section>
     );
   }
-
 }
 
 export default ConlangShow;
