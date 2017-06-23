@@ -12,14 +12,17 @@
 class Conlang < ApplicationRecord
   validates :name, presence: true
   belongs_to :user
+  alias_attribute :lexicon, :words
 
   after_create :create_phonology
   has_one :phonology, dependent: :destroy
+  has_many :words, dependent: :destroy
 
-
-  private
+  def words
+    Word.where(conlang_id: self.id).order(:word)
+  end
 
   def create_phonology
-    self.create_phonology
+    self.build_phonology.save
   end
 end
