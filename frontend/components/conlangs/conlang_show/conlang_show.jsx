@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import LexiconIndexContainer from './lexicon/lexicon_index_container';
 
 class ConlangShow extends React.Component {
   constructor (props) {
@@ -28,6 +29,11 @@ class ConlangShow extends React.Component {
           <h2 className="conlang-title">{conlang.name}</h2>
           <span>Created by <Link to="/"><name>{conlang.author.username}</name></Link></span>
         </div>
+        <LexiconIndexContainer
+          conlangId={conlang.id}
+          words={conlang.lexicon}
+          authorId={conlang.author.id}
+          />
       </section>
     );
   }
