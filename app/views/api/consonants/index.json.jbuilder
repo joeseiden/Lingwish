@@ -3,3 +3,7 @@
     json.partial! "api/consonants/consonant", consonant: consonant
   end
 end
+
+# json.array! @consonants do |consonant|
+#   json.partial! "api/consonants/consonant", consonant: consonant
+# end

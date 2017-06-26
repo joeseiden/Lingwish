@@ -5,7 +5,11 @@ class Api::ConsonantsController < ApplicationController
     else
       @consonants = Consonant.all
     end
-    render "api/consonants/index"
+    if params[:chartable]
+      render "api/consonants/chartable_index"
+    else
+      render "api/consonants/index"
+    end
   end
 
 

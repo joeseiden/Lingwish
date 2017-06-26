@@ -17,3 +17,10 @@ export const fetchAllConsonants = () => (
     url: `api/consonants`
   })
 );
+
+export const fetchChartableConsonants = () => (
+  $.ajax({
+    url: `api/consonants`,
+    chartable: true
+  })
+);
