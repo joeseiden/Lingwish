@@ -11,6 +11,12 @@ export const requestAllConsonants = () => dispatch => (
           err => dispatch(receiveErrors(err.responseJSON)))
 );
 
+export const requestChartableConsonants = () => dispatch => (
+  ConsonantAPIUtil.fetchAllConsonants(true)
+    .then(response => dispatch(receiveConsonants(response)),
+          err => dispatch(receiveErrors(err.responseJSON)))
+);
+
 export const requestConsonantInventory = inventory => dispatch => (
   ConsonantAPIUtil.fetchConsonantInventory(inventory)
     .then(response => dispatch(receiveConsonants(response)),

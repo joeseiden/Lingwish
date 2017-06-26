@@ -12,15 +12,9 @@ export const fetchConsonantInventory = inventory => (
   })
 );
 
-export const fetchAllConsonants = () => (
-  $.ajax({
-    url: `api/consonants`
-  })
-);
-
-export const fetchChartableConsonants = () => (
+export const fetchAllConsonants = (chartable=false) => (
   $.ajax({
     url: `api/consonants`,
-    chartable: true
+    chartable
   })
 );
