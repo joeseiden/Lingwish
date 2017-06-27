@@ -21,7 +21,7 @@ class ConlangShow extends React.Component {
 
   render() {
     let conlang = this.props.conlang;
-    console.log(conlang);
+
     if (!conlang.id) { return null; }
     return (
       <section className="conlang-show">
