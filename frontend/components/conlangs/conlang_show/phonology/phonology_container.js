@@ -7,8 +7,8 @@ import { requestChartableConsonants } from '../../../../actions/consonant_action
 
 const mapStateToProps = (state, ownProps) => ({
   conlangId: ownProps.conlangId,
-  conlangConsonantIds: ownProps.phonology.consonants.map(consonant => consonant.id),
-  conlangVowelIds: ownProps.phonology.vowels.map(vowel => vowel.id),
+  conlangConsonants: ownProps.phonology.consonants,
+  conlangVowels: ownProps.phonology.vowels,
   ipa: state.ipa,
   currentUser: (state.session.currentUser) ? state.session.currentUser : null,
   phonologyId: ownProps.phonology.id

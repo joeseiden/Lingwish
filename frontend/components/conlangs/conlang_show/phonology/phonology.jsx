@@ -9,8 +9,8 @@ class Phonology extends React.Component {
     super(props);
 
     this.state = {
-      consonantInventory: [...props.conlangConsonantIds],
-      vowelInventory: [...props.conlangVowelIds]
+      consonantInventory: [...props.conlangConsonants],
+      vowelInventory: [...props.conlangVowels]
     };
 
     this.addConsonant = this.addConsonant.bind(this);
@@ -29,23 +29,32 @@ class Phonology extends React.Component {
     });
   }
 
+  _parseInventory() {
+    return {
+      consonantInventory: this.state.consonantInventory.map(consonant => consonant.id),
+      vowelInventory: this.state.vowelInventory.map(vowel => vowel.id)
+    };
+  }
+
   addConsonant (id) {
     this.setState({consonantInventory: this.state.consonantInventory.push(id)});
+    let newPhonology = this._parseInventory();
     this.props.updatePhonology(
       this.props.currentUser.id,
       this.props.conlangId,
       this.props.phonologyId,
-      { phonology: this.state }
+      newPhonology
     );
   }
 
   addVowel (id) {
     this.setState({consonantInventory: this.state.vowelInventory.push(id)});
+    let newPhonology = this._parseInventory();
     this.props.updatePhonology(
       this.props.currentUser.id,
       this.props.conlangId,
       this.props.phonologyId,
-      { phonology: this.state }
+      newPhonology
     );
   }
 
