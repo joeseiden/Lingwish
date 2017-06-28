@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Link } from 'react-router-dom';
 import LexiconIndexContainer from './lexicon/lexicon_index_container';
+import { requestChartableConsonants } from '../../../actions/consonant_actions';
 
 class ConlangShow extends React.Component {
   constructor (props) {
@@ -9,7 +10,6 @@ class ConlangShow extends React.Component {
   }
 
   componentWillMount() {
-    console.log(this.props);
     this.props.requestSingleConlang(this.props.conlangId);
   }
 
