@@ -12,7 +12,7 @@ export const requestAllConsonants = () => dispatch => (
 );
 
 export const requestChartableConsonants = () => dispatch => (
-  ConsonantAPIUtil.fetchAllConsonants(true)
+  ConsonantAPIUtil.fetchChartableConsonants()
     .then(response => dispatch(receiveConsonants(response)),
           err => dispatch(receiveErrors(err.responseJSON)))
 );

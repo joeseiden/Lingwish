@@ -2,12 +2,12 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Link } from 'react-router-dom';
 import ConsonantChart from './consonants/consonant_chart';
-import VowelChart from './vowels/vowel_chart';
 
 class Phonology extends React.Component {
   constructor (props) {
     super(props);
 
+    console.log(props.conlangConsonants);
     this.state = {
       consonantInventory: [...props.conlangConsonants],
       vowelInventory: [...props.conlangVowels]
@@ -22,12 +22,12 @@ class Phonology extends React.Component {
     this.props.requestChartableVowels();
   }
 
-  componentWillReceiveProps (newProps) {
-    this.setState({
-      consonantInventory: [...newProps.conlangConsonantIds],
-      vowelInventory: [...newProps.conlangVowelIds]
-    });
-  }
+  // componentWillReceiveProps (newProps) {
+  //   this.setState({
+  //     consonantInventory: [...newProps.conlangConsonantIds],
+  //     vowelInventory: [...newProps.conlangVowelIds]
+  //   });
+  // }
 
   _parseInventory() {
     return {
@@ -36,19 +36,23 @@ class Phonology extends React.Component {
     };
   }
 
-  addConsonant (id) {
-    this.setState({consonantInventory: this.state.consonantInventory.push(id)});
-    let newPhonology = this._parseInventory();
-    this.props.updatePhonology(
-      this.props.currentUser.id,
-      this.props.conlangId,
-      this.props.phonologyId,
-      newPhonology
-    );
+  addConsonant (consonant) {
+    // this.setState({consonantInventory: this.state.consonantInventory.push(consonant)});
+    // let newPhonology = this._parseInventory();
+    // if (this.props.currentUser.id) {
+    //   this.props.updatePhonology(
+    //     this.props.currentUser.id,
+    //     this.props.conlangId,
+    //     this.props.phonologyId,
+    //     newPhonology
+    //   );
+    // } else {
+    //   // Do something else?
+    // }
   }
 
-  addVowel (id) {
-    this.setState({consonantInventory: this.state.vowelInventory.push(id)});
+  addVowel (vowel) {
+    this.setState({consonantInventory: this.state.vowelInventory.push(vowel)});
     let newPhonology = this._parseInventory();
     this.props.updatePhonology(
       this.props.currentUser.id,
@@ -60,8 +64,10 @@ class Phonology extends React.Component {
 
   render () {
     const ipa = this.props.ipa;
-
-    if (!ipa) { return null; }
+    const consonants = ipa.consonants;
+    const vowels = ipa.vowels;
+    console.log(this.state.consonantInventory);
+    if (!consonants || !vowels) { return null; }
     return (
       <section className="phonology-section">
         <h2>
@@ -70,9 +76,9 @@ class Phonology extends React.Component {
         <div className="consonants">
           <h3>Pulmonic Consonants</h3>
           <ConsonantChart
-            allConsonants = {ipa.consonants}
-            consonantInventory = {this.state.consonantInventory}
-            addConsonant = {this.addConsonant}
+            allConsonants={consonants}
+            consonantInventory={this.state.consonantInventory}
+            addConsonant={this.addConsonant}
             />
         </div>
         <div className="vowels">
@@ -82,3 +88,5 @@ class Phonology extends React.Component {
     );
   }
 }
+
+export default Phonology;

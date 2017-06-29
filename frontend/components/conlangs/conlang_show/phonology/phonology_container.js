@@ -16,8 +16,8 @@ const mapStateToProps = (state, ownProps) => ({
 
 const mapDispatchToProps = dispatch => ({
   updatePhonology: (userId, conlangId, id, phonology) => dispatch(updatePhonology(userId, conlangId, id, phonology)),
-  requestChartableVowels: () => dispatch(requestChartableVowels),
-  requestChartableConsonants: () => dispatch(requestChartableConsonants)
+  requestChartableVowels: () => dispatch(requestChartableVowels()),
+  requestChartableConsonants: () => dispatch(requestChartableConsonants())
 });
 
 export default connect(

@@ -14,8 +14,8 @@ import consonantReducer from './consonant_reducer';
 import merge from 'lodash/merge';
 
 const _defaultIPA = {
-  consonants: {},
-  vowels: {}
+  consonants: null,
+  vowels: null
 };
 
 const IPAReducer = (state = _defaultIPA, action) => {
