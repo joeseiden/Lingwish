@@ -2,7 +2,6 @@ import React from 'react';
 import ConsonantChartRow from './consonant_chart_row';
 
 const ConsonantChart = props => {
-  console.log(props);
   const allConsonants = props.allConsonants;
   const consonantInventory = props.consonantInventory;
   const methods = [
@@ -27,7 +26,6 @@ const ConsonantChart = props => {
     "Pharyngeal",
     "Glottal"
   ];
-  console.log(allConsonants);
   return (
     <table className="consonants-table">
       <thead>
@@ -42,7 +40,7 @@ const ConsonantChart = props => {
                   rowName={method}
                   consonants={allConsonants[method]}
                   consonantInventory={consonantInventory.filter(consonant => consonant.method===method)}
-                  addConsonant={props.addConsonant}
+                  toggleConsonant={props.toggleConsonant}
                   />
               )
             }

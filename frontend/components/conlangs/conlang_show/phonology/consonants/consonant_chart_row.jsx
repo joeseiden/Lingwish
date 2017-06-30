@@ -25,7 +25,7 @@ const ConsonantChartRow = props => {
                               key={`${props.method}-${point}`}
                               inventory={inventory.filter(consonant => consonant.point === point)}
                               consonants={consonants[point]}
-                              addConsonant={props.addConsonant}
+                              toggleConsonant={props.toggleConsonant}
                               />)}
     </tr>
   );

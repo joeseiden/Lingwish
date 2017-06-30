@@ -18,9 +18,10 @@ const ConsonantChartItem = props => {
         return (
           <span
             key={consonant.id}
+            value={consonant.id}
             className={classes}
             title={consonant.name}
-            onClick={props.addConsonant(consonant)}>
+            onClick={props.toggleConsonant.bind(this, consonant.id)}>
             {consonant.char}
           </span>
         );

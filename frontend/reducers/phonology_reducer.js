@@ -7,12 +7,9 @@ import merge from 'lodash/merge';
 
 const phonologyReducer = (state = {}, action) => {
   Object.freeze(state);
-  console.log(action.type);
-  let nextState = merge({}, state);
   switch (action.type) {
     case RECEIVE_PHONOLOGY:
-      nextState.phonology = action.phonology;
-      return nextState;
+      return action.phonology;
     default:
       return state;
   }

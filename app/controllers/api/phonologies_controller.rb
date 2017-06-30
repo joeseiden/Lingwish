@@ -2,7 +2,6 @@ class Api::PhonologiesController < ApplicationController
 
   def update
     @phonology = Phonology.find(params[:id])
-
     if @phonology.update(phonology_params)
       render "api/phonologies/show"
     else
@@ -13,7 +12,7 @@ class Api::PhonologiesController < ApplicationController
   private
 
   def phonology_params
-    params.require(:phonology).permit(:consonant_inventory, :vowel_inventory)
+    params.require(:phonology).permit({ consonant_inventory: [] },
+                                      { vowel_inventory: [] })
   end
-
 end
