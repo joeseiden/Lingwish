@@ -12,7 +12,7 @@ export const requestAllVowels = () => dispatch => (
 );
 
 export const requestChartableVowels = () => dispatch => (
-  VowelAPIUtil.fetchAllVowels(true)
+  VowelAPIUtil.fetchChartableVowels()
     .then(response => dispatch(receiveVowels(response)),
           err => dispatch(receiveErrors(err.responseJSON)))
 );

@@ -11,9 +11,14 @@ export const fetchVowelIntentory = inventory => (
   })
 );
 
-export const fetchAllVowels = (chartable=false) => (
+export const fetchAllVowels = () => (
   $.ajax({
     url: `api/vowels`,
-    chartable
+  })
+);
+
+export const fetchChartableVowels = () => (
+  $.ajax({
+    url: `api/vowels?chartable=true`
   })
 );

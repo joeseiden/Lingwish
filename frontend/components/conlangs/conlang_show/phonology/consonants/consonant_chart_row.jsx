@@ -18,15 +18,19 @@ const ConsonantChartRow = props => {
     "Glottal"
   ];
 
+
+
   return (
     <tr>
       <th>{props.rowName}</th>
       {points.map(point => <ConsonantChartItem
-                              key={`${props.method}-${point}`}
+                              key={`${props.rowName}-${point}`}
                               inventory={inventory.filter(consonant => consonant.point === point)}
                               consonants={consonants[point]}
                               toggleConsonant={props.toggleConsonant}
-                              />)}
+                              />
+                          )
+                        }
     </tr>
   );
 

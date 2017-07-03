@@ -3,5 +3,5 @@ export const updatePhonology = (userId, conlangId, id, phonology) => (
     type: "PATCH",
     url: `api/users/${userId}/conlangs/${conlangId}/phonologies/${id}`,
     data: {phonology}
-  });
+  })
 );

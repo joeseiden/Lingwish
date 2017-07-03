@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Link } from 'react-router-dom';
 import ConsonantChart from './consonants/consonant_chart';
+import VowelChart from './vowels/vowel_chart';
 
 class Phonology extends React.Component {
   constructor (props) {
@@ -13,7 +14,7 @@ class Phonology extends React.Component {
     };
 
     this.toggleConsonant = this.toggleConsonant.bind(this);
-    this.addVowel = this.addVowel.bind(this);
+    this.toggleVowel = this.toggleVowel.bind(this);
   }
 
   componentWillMount () {
@@ -88,6 +89,11 @@ class Phonology extends React.Component {
         </div>
         <div className="vowels">
           <h3>Vowels</h3>
+          <VowelChart
+            allVowels={vowels}
+            vowelInventory={this.state.vowelInventory}
+            toggleVowel={this.toggleVowel}
+            />
         </div>
       </section>
     );
