@@ -12,11 +12,9 @@ const VowelChartRow = props => {
     "Back"
   ];
 
-  console.log(vowels);
-
   return (
     <tr>
-      <th>{props.rowName}</th>
+      <th className={`${props.rowName}-row`}>{props.rowName}</th>
       {frontness.map(column => <VowelChartItem
                                   key={`${props.rowName}-${column}`}
                                   inventory={inventory.filter(vowel => vowel.frontness===column)}
