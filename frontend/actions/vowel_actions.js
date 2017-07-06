@@ -11,6 +11,12 @@ export const requestAllVowels = () => dispatch => (
           err => dispatch(receiveErrors(err.responseJSON)))
 );
 
+export const requestChartableVowels = () => dispatch => (
+  VowelAPIUtil.fetchChartableVowels()
+    .then(response => dispatch(receiveVowels(response)),
+          err => dispatch(receiveErrors(err.responseJSON)))
+);
+
 export const requestVowelInventory = inventory => dispatch => (
   VowelAPIUtil.fetchVowelInventory(inventory)
     .then(response => dispatch(receiveVowels(response)),

@@ -26,3 +26,5 @@ const lexiconReducer = (state = [], action) => {
       return state;
   }
 };
+
+export default lexiconReducer;

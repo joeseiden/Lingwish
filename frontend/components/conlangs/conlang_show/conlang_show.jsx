@@ -2,6 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Link } from 'react-router-dom';
 import LexiconIndexContainer from './lexicon/lexicon_index_container';
+import PhonologyContainer from './phonology/phonology_container';
+import { requestChartableConsonants } from '../../../actions/consonant_actions';
 
 class ConlangShow extends React.Component {
   constructor (props) {
@@ -9,7 +11,6 @@ class ConlangShow extends React.Component {
   }
 
   componentWillMount() {
-    console.log(this.props);
     this.props.requestSingleConlang(this.props.conlangId);
   }
 
@@ -21,7 +22,6 @@ class ConlangShow extends React.Component {
 
   render() {
     let conlang = this.props.conlang;
-    console.log(conlang);
     if (!conlang.id) { return null; }
     return (
       <section className="conlang-show">
@@ -34,10 +34,13 @@ class ConlangShow extends React.Component {
           words={conlang.lexicon}
           authorId={conlang.author.id}
           />
+        <PhonologyContainer
+          conlangId={conlang.id}
+          phonology={conlang.phonology}
+          />
       </section>
     );
   }
-
 }
 
 export default ConlangShow;
