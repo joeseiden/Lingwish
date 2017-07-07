@@ -28,15 +28,16 @@ class ConlangShow extends React.Component {
         <div className="conlang-show-header">
           <h2 className="conlang-title">{conlang.name}</h2>
           <span>Created by <Link to="/"><name>{conlang.author.username}</name></Link></span>
+          <p className="conlang-description">{conlang.description}</p>
         </div>
+        <PhonologyContainer
+          conlangId={conlang.id}
+          phonology={conlang.phonology}
+          />
         <LexiconIndexContainer
           conlangId={conlang.id}
           words={conlang.lexicon}
           authorId={conlang.author.id}
-          />
-        <PhonologyContainer
-          conlangId={conlang.id}
-          phonology={conlang.phonology}
           />
       </section>
     );

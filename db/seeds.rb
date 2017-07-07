@@ -99,10 +99,13 @@ Vowel.create([
   ])
 User.destroy_all
 barry = User.create!(username: "barry_bluejeans", password: "password")
-conlang = barry.conlangs.create!(name: "Test_conlang")
+conlang = barry.conlangs.create!(
+name: "Test_conlang",
+description: "This is a test conlang"
+)
 
 Word.create!([
-  {word: "ʁ", conlang_id: conlang.id},
-  {word: "a", conlang_id: conlang.id},
-  {word: "c", conlang_id: conlang.id}
+  { word: "ʁ", conlang_id: conlang.id },
+  { word: "a", conlang_id: conlang.id },
+  { word: "c", conlang_id: conlang.id }
   ])
