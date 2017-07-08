@@ -25,7 +25,7 @@ const App = (props) => (
       <AuthRoute path="/login" component={AuthFormContainer} />
       <AuthRoute path="/signup" component={AuthFormContainer} />
       <Route path="/conlangs/:conlangId" component={ConlangShowContainer} />
-      <Route exact path="/conlang_index" component={ConlangIndexContainer} />
+      <Route path="/conlangs" component={ConlangIndexContainer} />
       <Route exact path="/" component={HomePageContainer} />
     </Switch>
   </div>

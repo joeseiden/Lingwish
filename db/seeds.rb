@@ -105,6 +105,11 @@ description: "This is a test conlang"
 )
 conlang2 = barry.conlangs.create!(name: "Test_conlang2")
 
+titles = "abcdefghijklmnopqrstuvwxyz".split("")
+titles.each do |word|
+  barry.conlangs.create(name: word, description: word)
+end
+
 no_conlangs = User.create!(username: "no_conlangs", password: "noneatall")
 Word.create!([
   { word: "ʁ", conlang_id: conlang.id },

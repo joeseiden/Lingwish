@@ -35,8 +35,8 @@ class ConlangIndex extends React.Component {
     let perPage = this.state.perPage;
     if (!conlangs) { return null; }
 
-    let startIdx = (activePage - 1) + (perPage * (activePage - 1));
-    let endIdx = (activePage - 1) + (perPage * activePage) - 1;
+    let startIdx = perPage * (activePage - 1);
+    let endIdx = perPage * activePage;
     let currentPageConlangs = conlangs.slice(startIdx, endIdx);
 
     return (
