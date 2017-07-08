@@ -30,12 +30,12 @@ class ConlangIndex extends React.Component {
 
   render() {
     const conlangs = this.props.conlangs;
+    const totalItemCount = conlangs.length;
     let activePage = this.state.activePage;
     let perPage = this.state.perPage;
-
     if (!conlangs) { return null; }
 
-    let startIdx = (activePage - 1) + (perPage * activePage - 1) - 1;
+    let startIdx = (activePage - 1) + (perPage * (activePage - 1));
     let endIdx = (activePage - 1) + (perPage * activePage) - 1;
     let currentPageConlangs = conlangs.slice(startIdx, endIdx);
 
@@ -55,7 +55,7 @@ class ConlangIndex extends React.Component {
           hideDisabled
           activePage={this.state.activePage}
           itemsCountPerPage={this.state.perPage}
-          totalItemsCount={this.props.totalItemCount}
+          totalItemsCount={totalItemCount}
           onChange={this.handlePageChange}
           />
       </section>

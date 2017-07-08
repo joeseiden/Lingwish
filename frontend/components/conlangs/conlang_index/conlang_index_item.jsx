@@ -14,7 +14,7 @@ const ConlangIndexItem = props => {
       <p className="conlang-description abbreviated">
         {conlang.description}
       </p>
-      <span>Created by
+      <span>Created by&nbsp;
         <Link to="/">
           <name>
             {conlang.author.username}

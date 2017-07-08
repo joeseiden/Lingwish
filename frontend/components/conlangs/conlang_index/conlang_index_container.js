@@ -4,8 +4,7 @@ import ConlangIndex from './conlang_index';
 import { requestConlangIndex } from '../../../actions/conlang_actions';
 
 const mapStateToProps = (state, ownProps) => ({
-  conlangs: state.conlangs,
-  totalItemCount: state.conlangs.length
+  conlangs: state.conlangIndex
 });
 
 const mapDispatchToProps = dispatch => ({

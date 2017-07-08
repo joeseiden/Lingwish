@@ -10,6 +10,7 @@ import {
 import AuthFormContainer from './session_auth/auth_form_container';
 import HomePageContainer from './home_page/home_page_container';
 import ConlangShowContainer from './conlangs/conlang_show/conlang_show_container';
+import ConlangIndexContainer from './conlangs/conlang_index/conlang_index_container';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
 
 
@@ -24,6 +25,7 @@ const App = (props) => (
       <AuthRoute path="/login" component={AuthFormContainer} />
       <AuthRoute path="/signup" component={AuthFormContainer} />
       <Route path="/conlangs/:conlangId" component={ConlangShowContainer} />
+      <Route exact path="/conlang_index" component={ConlangIndexContainer} />
       <Route exact path="/" component={HomePageContainer} />
     </Switch>
   </div>

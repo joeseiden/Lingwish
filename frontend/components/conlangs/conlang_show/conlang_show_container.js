@@ -6,7 +6,7 @@ import { clearErrors } from '../../../actions/errors_actions';
 
 const mapStateToProps = (state, ownProps) => ({
   conlangId: parseInt(ownProps.match.params.conlangId),
-  conlang: state.conlangs
+  conlang: state.conlangDetail
 });
 
 const mapDispatchToProps = dispatch => ({
