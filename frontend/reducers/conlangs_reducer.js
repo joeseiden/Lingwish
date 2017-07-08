@@ -17,7 +17,7 @@ import lexiconReducer from './lexicon_reducer';
 
 import merge from 'lodash/merge';
 
-const ConlangsReducer = (state = {}, action) => {
+const ConlangsReducer = (state = null, action) => {
   Object.freeze(state);
   let nextState = merge({}, state);
   switch (action.type) {

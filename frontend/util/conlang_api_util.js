@@ -4,7 +4,7 @@ export const fetchSingleConlang = id => (
   })
 );
 
-export const fetchAllConlangs = () => (
+export const fetchConlangIndex = () => (
   $.ajax({
     url: 'api/conlangs'
   })

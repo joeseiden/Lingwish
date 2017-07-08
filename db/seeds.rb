@@ -103,7 +103,9 @@ conlang = barry.conlangs.create!(
 name: "Test_conlang",
 description: "This is a test conlang"
 )
+conlang2 = barry.conlangs.create!(name: "Test_conlang2")
 
+no_conlangs = User.create!(username: "no_conlangs", password: "noneatall")
 Word.create!([
   { word: "ʁ", conlang_id: conlang.id },
   { word: "a", conlang_id: conlang.id },

@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom';
 import { Link } from 'react-router-dom';
 import LexiconIndexContainer from './lexicon/lexicon_index_container';
 import PhonologyContainer from './phonology/phonology_container';
-import { requestChartableConsonants } from '../../../actions/consonant_actions';
 
 class ConlangShow extends React.Component {
   constructor (props) {
@@ -21,14 +20,17 @@ class ConlangShow extends React.Component {
   }
 
   render() {
-    let conlang = this.props.conlang;
+    const conlang = this.props.conlang;
     if (!conlang.id) { return null; }
+
+    const description = conlang.description ? conlang.description : "No description";
+
     return (
       <section className="conlang-show">
         <div className="conlang-show-header">
           <h2 className="conlang-title">{conlang.name}</h2>
           <span>Created by <Link to="/"><name>{conlang.author.username}</name></Link></span>
-          <p className="conlang-description">{conlang.description}</p>
+          <p className="conlang-description">{description}</p>
         </div>
         <PhonologyContainer
           conlangId={conlang.id}

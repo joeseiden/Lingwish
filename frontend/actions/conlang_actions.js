@@ -5,8 +5,8 @@ import { receiveErrors } from './errors_actions';
 export const RECEIVE_CONLANGS = "RECEIVE_CONLANGS";
 export const RECEIVE_SINGLE_CONLANG = "RECEIVE_SINGLE_CONLANG";
 
-export const requestAllConlangs = () => dispatch => (
-  ConlangAPIUtil.fetchAllConlangs()
+export const requestConlangIndex = () => dispatch => (
+  ConlangAPIUtil.fetchConlangIndex()
     .then(conlangs => dispatch(receiveConlangs(conlangs)),
           err => dispatch(receiveErrors(err.responseJSON)))
 );
