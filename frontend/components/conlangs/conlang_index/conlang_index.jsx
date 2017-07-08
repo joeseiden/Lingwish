@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Pagination from 'react-js-pagination';
 import ConlangIndexItem from './conlang_index_item';
+import classNames from 'classnames';
 
 class ConlangIndex extends React.Component {
   constructor (props) {
@@ -24,6 +25,7 @@ class ConlangIndex extends React.Component {
   }
 
   changePerPageCount(perPageCount) {
+    this.handlePageChange(1);
     this.setState({perPage: perPageCount});
   }
 
@@ -34,7 +36,6 @@ class ConlangIndex extends React.Component {
     let activePage = this.state.activePage;
     let perPage = this.state.perPage;
     if (!conlangs) { return null; }
-
     let startIdx = perPage * (activePage - 1);
     let endIdx = perPage * activePage;
     let currentPageConlangs = conlangs.slice(startIdx, endIdx);
@@ -58,6 +59,22 @@ class ConlangIndex extends React.Component {
           totalItemsCount={totalItemCount}
           onChange={this.handlePageChange}
           />
+        <div>Items Per Page</div>
+        {[5,10,25,50,100].map((count, idx) => {
+          let classes = classNames({
+            'active': count===perPage
+          });
+
+          return (
+            <button
+              key={idx}
+              disabled={count===perPage}
+              className={classes}
+              onClick={this.changePerPageCount.bind(this, count)}>
+              {count}
+            </button>
+          );
+        })}
       </section>
     );
   }
