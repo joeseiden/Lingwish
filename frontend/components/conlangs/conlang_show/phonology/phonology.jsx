@@ -3,6 +3,46 @@ import ReactDOM from 'react-dom';
 import { Link } from 'react-router-dom';
 import ConsonantChart from './consonants/consonant_chart';
 import VowelChart from './vowels/vowel_chart';
+import IpaChart from './ipa/ipa_chart';
+
+const methods = [
+  "Plosive",
+  "Nasal",
+  "Trill",
+  "Tap",
+  "Fricative",
+  "Approximant",
+  "Lateral-Approximant"
+];
+const points = [
+  "Bilabial",
+  "Labiodental",
+  "Dental",
+  "Alveolar",
+  "Postalveolar",
+  "Retroflex",
+  "Palatal",
+  "Velar",
+  "Uvular",
+  "Pharyngeal",
+  "Glottal"
+];
+const openness = [
+  "Close",
+  "Near-Close",
+  "Close-Mid",
+  "Mid",
+  "Open-Mid",
+  "Near-Open",
+  "Open"
+];
+const frontness = [
+  "Front",
+  "Near-Front",
+  "Central",
+  "Near-Back",
+  "Back"
+];
 
 class Phonology extends React.Component {
   constructor (props) {
@@ -73,6 +113,7 @@ class Phonology extends React.Component {
     const ipa = this.props.ipa;
     const consonants = ipa.consonants;
     const vowels = ipa.vowels;
+
     if (!consonants || !vowels) { return null; }
     return (
       <section className="phonology-section">
@@ -81,18 +122,24 @@ class Phonology extends React.Component {
         </h2>
         <div className="consonants">
           <h3>Pulmonic Consonants</h3>
-          <ConsonantChart
-            allConsonants={consonants}
-            consonantInventory={this.state.consonantInventory}
-            toggleConsonant={this.toggleConsonant}
+          <IpaChart
+            type="consonants"
+            columns={points}
+            rows={methods}
+            phonemes={consonants}
+            inventory={this.state.consonantInventory}
+            selectPhoneme={this.toggleConsonant}
             />
         </div>
         <div className="vowels">
           <h3>Vowels</h3>
-          <VowelChart
-            allVowels={vowels}
-            vowelInventory={this.state.vowelInventory}
-            toggleVowel={this.toggleVowel}
+          <IpaChart
+            type="vowels"
+            columns={frontness}
+            rows={openness}
+            phonemes={vowels}
+            inventory={this.state.vowelInventory}
+            selectPhoneme={this.toggleVowel}
             />
         </div>
       </section>

@@ -22,7 +22,6 @@ const VowelChart = props => {
   ];
 
 
-
   return (
     <table className="vowels-table">
       <thead>

@@ -29,6 +29,8 @@
     "classnames": "^2.2.5",
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
+    "react-js-pagination": "^2.1.0",
+    "react-paginate": "^4.4.3",
     "react-redux": "^5.0.4",
     "react-router": "^4.1.1",
     "react-router-dom": "^4.1.1",
