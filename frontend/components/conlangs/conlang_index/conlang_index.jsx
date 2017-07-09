@@ -87,8 +87,7 @@ class ConlangIndex extends React.Component {
               });
 
               return (
-                <li><button
-                  key={idx}
+                <li key={idx}><button
                   disabled={count===perPage}
                   className={classes}
                   onClick={this.changePerPageCount.bind(this, count)}>
