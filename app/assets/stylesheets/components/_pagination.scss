@@ -1,0 +1,17 @@
+.pagination {
+  display: flex;
+  flex-direction: row;
+  margin-top: 50px;
+  li {
+    background: $lightbeige;
+    padding: 2px 7px;
+    border: 1px solid $black;
+    border-radius: 5px;
+    margin: 0 1px;
+    color: $black;
+  }
+
+  li.active {
+    background: $teal;
+  }
+}

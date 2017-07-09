@@ -28,6 +28,7 @@
     "babel-preset-react": "^6.24.1",
     "classnames": "^2.2.5",
     "react": "^15.5.4",
+    "react-dd-menu": "^2.0.1",
     "react-dom": "^15.5.4",
     "react-js-pagination": "^2.1.0",
     "react-paginate": "^4.4.3",

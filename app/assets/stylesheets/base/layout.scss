@@ -27,3 +27,29 @@ td {
   width: 50px;
   text-align: center;
 }
+
+button {
+  border: 1px solid $black;
+  background: $lightbeige;
+  color: $black;
+  border-radius: 5px;
+  margin: 5px;
+  padding: 3px 10px;
+}
+
+button.active {
+  background: $teal;
+  color: $black;
+  border-color: $black;
+}
+
+a:hover, button:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.index-settings {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
