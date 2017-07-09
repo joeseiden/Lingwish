@@ -1,0 +1,22 @@
+.Near-Close, .Close-Mid, .Open-Mid, .Near-Open, .Near-Front, .Near-Back {
+  font-weight: normal;
+}
+
+.Bilabial-Lateral-Approximant, .Bilabial-Lateral-Fricative,
+ .Labiodental-Lateral-Approximant, .Labiodental-Lateral-Fricative,
+.Velar-Trill, .Velar-Tap, .Pharyngeal-Lateral-Approximant,
+.Pharyngeal-Nasal, .Pharyngeal-Lateral-Fricative,
+.Glottal-Lateral-Approximant, .Glottal-Nasal, .Glottal-Approximant,
+.Glottal-Lateral-Fricative {
+  background: grey;
+}
+
+td {
+  span {
+    color: lightgrey;
+  }
+}
+
+.selected {
+  color: $teal;
+}

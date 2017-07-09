@@ -48,7 +48,7 @@ class LexiconIndex extends React.Component {
             hideDisabled
             activePage={this.state.activePage}
             itemsCountPerPage={this.state.perPage}
-            totalItemCount={words.length}
+            totalItemsCount={words.length}
             onChange={this.handlePageChange}
             />
           <div>Words Per Page</div>

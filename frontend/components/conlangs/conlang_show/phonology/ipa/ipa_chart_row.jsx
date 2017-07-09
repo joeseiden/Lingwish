@@ -23,6 +23,7 @@ const IpaChartRow = props => {
                 inventory={filterInventoryByColumn(inventory, column)}
                 phonemes={phonemes[column]}
                 selectPhoneme={props.selectPhoneme}
+                cellName={`${column}-${props.rowName}`}
                 />
             )
           }

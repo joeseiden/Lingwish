@@ -6,7 +6,7 @@ const IpaChartItem = props => {
   const phonemes = props.phonemes;
 
   return (
-    <td>
+    <td className={props.cellName}>
       {phonemes.map(phoneme => {
           let classes = classNames({
             'ipa': true,
