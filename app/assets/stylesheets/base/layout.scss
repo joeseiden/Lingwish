@@ -1,0 +1,29 @@
+h1 {
+  font-size: 48px;
+}
+
+h2 {
+  font-size: 32px;
+}
+
+h3 {
+  font-size: 28px;
+}
+
+.ipa {
+  font-family: $ipa;
+}
+
+.selectable:hover {
+  cursor: pointer;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+td {
+  border: 1px solid $black;
+  width: 50px;
+  text-align: center;
+}

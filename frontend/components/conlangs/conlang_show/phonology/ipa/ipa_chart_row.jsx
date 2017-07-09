@@ -17,7 +17,7 @@ const IpaChartRow = props => {
 
   return (
     <tr>
-      <th>{props.rowName}</th>
+      <th className={`ipa-chart-row ${props.rowName}`}>{props.rowName}</th>
       {columns.map(column => <IpaChartItem
                 key={`${props.rowName}-${column}`}
                 inventory={filterInventoryByColumn(inventory, column)}
