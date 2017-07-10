@@ -11,6 +11,7 @@ const methods = [
   "Trill",
   "Tap",
   "Fricative",
+  "Lateral-Fricative",
   "Approximant",
   "Lateral-Approximant"
 ];

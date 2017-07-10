@@ -1,0 +1,41 @@
+.conlang-index-section {
+  margin-left: 5vw;
+  .conlang-index {
+    .conlang-index-item {
+      margin: 15px 0;
+      .conlang-title {
+        font-size: 20px;
+      }
+      .conlang-title {
+        span {
+          font-size: 14px;
+        }
+      }
+      .conlang-description {
+        width: 80vw;
+        margin: 5px 0 0 5px;
+      }
+      .conlang-description.abbreviated {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+    }
+  }
+}
+
+
+button {
+  padding: 3px 7px;
+  margin: 1px;
+}
+
+.dd-items-right {
+  display: flex;
+  flex-direction: row;
+}
+
+.dd-menu {
+  display: flex;
+  flex-direction: row;
+}

@@ -8,7 +8,7 @@ const LexiconIndexItem = props => {
   return (
     <li className="lexicon-index-item">
       <div className="word-info">
-        <div className="word">{word.word}</div>
+        <div className="word ipa">{word.word}</div>
         <div className="word-type">{type}</div>
         <label>Definition:</label>
         <p className="word-definition">{definition}</p>

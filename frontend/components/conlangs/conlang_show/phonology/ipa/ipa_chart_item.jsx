@@ -6,11 +6,12 @@ const IpaChartItem = props => {
   const phonemes = props.phonemes;
 
   return (
-    <td>
+    <td className={props.cellName}>
       {phonemes.map(phoneme => {
           let classes = classNames({
             'ipa': true,
-            'selected': inventory.includes(phoneme.id)
+            'selected': inventory.includes(phoneme.id),
+            'selectable': true
           });
 
           return (
