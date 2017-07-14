@@ -24,6 +24,9 @@ class AuthForm extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
+    if (this.props.formType!==nextProps.formType) {
+      this.props.clearErrors();
+    }
     if (nextProps.loggedIn) {
       this.props.history.push('/');
     }
