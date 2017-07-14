@@ -17,8 +17,8 @@ import { AuthRoute, ProtectedRoute } from '../util/route_util';
 const App = (props) => (
   <div>
     <header>
-      <Link to="/" className="header-link ipa">
-        <h1>l&#x026A;&#x014B;&#x0261;w&#x026A;&#x0283;</h1>
+      <Link to="/" className="header-link">
+        <h1 className="ipa">l&#x026A;&#x014B;&#x0261;w&#x026A;&#x0283;</h1>
       </Link>
     </header>
     <Switch>

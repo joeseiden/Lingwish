@@ -14,9 +14,15 @@
 td {
   span {
     color: lightgrey;
+    margin: 0 5px;
   }
 }
 
 .selected {
   color: $teal;
+}
+
+.vowels, .consonants {
+  position: relative;
+  left: 3vw;
 }

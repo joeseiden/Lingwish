@@ -53,7 +53,7 @@ class ConlangIndex extends React.Component {
     let currentPageConlangs = conlangs.slice(startIdx, endIdx);
 
     return (
-      <section className="conlang-index-section">
+      <section className="conlang-index-section main-section">
         <h2>Conlangs</h2>
         <ul className="conlang-index">
           {currentPageConlangs.map((conlang, idx) => (

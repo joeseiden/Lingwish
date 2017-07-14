@@ -1,5 +1,4 @@
 .conlang-index-section {
-  margin-left: 5vw;
   .conlang-index {
     .conlang-index-item {
       margin: 15px 0;
@@ -14,11 +13,15 @@
       .conlang-description {
         width: 80vw;
         margin: 5px 0 0 5px;
+        cursor: default;
       }
       .conlang-description.abbreviated {
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
+      }
+      .conlang-description.abbreviated:hover {
+        cursor: pointer;
       }
     }
   }
