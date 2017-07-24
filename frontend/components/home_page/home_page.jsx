@@ -25,4 +25,4 @@ class HomePage extends React.Component {
   }
 }
 
-export default withRouter(HomePage);
+export default HomePage;
