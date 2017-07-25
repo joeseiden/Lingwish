@@ -3,17 +3,17 @@ import ReactDOM from 'react-dom';
 import { Link, withRouter } from 'react-router-dom';
 
 const authLinks = () => (
-  <nav className="right-nav">
+  <nav className="right-nav auth-links">
     <Link to={`/login`} className='auth-link'>Login</Link>
     <Link to={`/signup`} className='auth-link'>New User?</Link>
   </nav>
 );
 
 const personalGreeting = (currentUser, logOut) => (
-  <div className='right-nav'>
-    <h2 className="greeting">
+  <div className='right-nav greeting-container'>
+    <h3 className="greeting">
       Hi, {currentUser.username}!
-    </h2>
+    </h3>
     <Link to={`/`} className='profile-link'>
       My Profile
     </Link>

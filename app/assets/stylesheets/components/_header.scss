@@ -1,9 +1,11 @@
 header {
   background: lightgrey;
-  height: 75px;
+  height: 60px;
   border-bottom: 2px solid grey;
   display: flex;
   justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 10px;
 }
 
 .header-link:hover {
@@ -22,4 +24,17 @@ header {
 .right-nav {
   display: flex;
   justify-content: space-around;
+  margin-right: 1vw;
+  max-width: 150px;
+  width: 33vw;
+}
+
+.greeting-container {
+  max-width: 400px;
+  width: 33vw;
+  align-items: flex-end;
+  .greeting {
+    margin: 0;
+    font-size: 20px;
+  }
 }
