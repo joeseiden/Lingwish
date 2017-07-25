@@ -15,17 +15,11 @@
 
 // Reset
 @import "base/reset.scss";
-<<<<<<< HEAD:app/assets/stylesheets/application.css.scss
-@import "base/layout.scss";
-
-//  Core
-=======
 
 // Core
 @import "base/palette.scss";
 @import "base/fonts.scss";
 @import "base/layout.scss";
->>>>>>> 56889a431b82d153e610136390cf3eea1d4f767b:app/assets/stylesheets/application.css.scss
 
 // Components
 @import "components/*";

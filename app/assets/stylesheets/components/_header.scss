@@ -2,6 +2,8 @@ header {
   background: lightgrey;
   height: 75px;
   border-bottom: 2px solid grey;
+  display: flex;
+  justify-content: space-between;
 }
 
 .header-link:hover {
@@ -15,4 +17,9 @@ header {
 
 .ipa {
   font-family: $ipa;
+}
+
+.right-nav {
+  display: flex;
+  justify-content: space-around;
 }

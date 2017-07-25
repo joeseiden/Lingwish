@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import Header from './header';
+import RightNav from './right_nav';
 import {
   logOut
 } from '../../actions/session_actions';
@@ -11,3 +11,8 @@ const mapStateToProps = ({session}) => ({
 const mapDispatchToProps = (dispatch) => ({
   logOut: () => dispatch(logOut())
 });
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(RightNav);

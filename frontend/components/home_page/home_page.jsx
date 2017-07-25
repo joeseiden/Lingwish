@@ -5,13 +5,6 @@ import { Link, withRouter } from 'react-router-dom';
 class HomePage extends React.Component {
   constructor(props){
     super(props);
-
-    this._goToIndex = this._goToIndex.bind(this);
-  }
-
-  _goToIndex (e) {
-    e.preventDefault();
-    this.props.history.push('conlangs');
   }
 
   render () {
