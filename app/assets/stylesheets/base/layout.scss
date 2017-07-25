@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 html {
   position: relative;
   height: 100%;
@@ -19,4 +20,73 @@ h2 {
 
 h3 {
   font-size: 22px;
+=======
+h1 {
+  font-size: 48px;
+}
+
+h2 {
+  font-size: 32px;
+}
+
+h3 {
+  font-size: 24px;
+}
+
+h1, h2, h3 {
+  font-family: $opensans;
+}
+
+body {
+  font-family: $roboto;
+  background: $lightbeige;
+}
+
+.ipa {
+  font-family: $ipa;
+}
+
+.selectable:hover {
+  cursor: pointer;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+td {
+  border: 1px solid $black;
+  width: 50px;
+  text-align: center;
+}
+
+button {
+  border: 1px solid $black;
+  background: $lightbeige;
+  color: $black;
+  border-radius: 5px;
+  margin: 5px;
+  padding: 3px 10px;
+}
+
+button.active {
+  background: $teal;
+  color: $black;
+  border-color: $black;
+}
+
+a:hover, button:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.index-settings {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.main-section {
+  margin: 0 5vw;
+>>>>>>> 56889a431b82d153e610136390cf3eea1d4f767b
 }

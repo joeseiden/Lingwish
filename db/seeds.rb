@@ -99,4 +99,20 @@ Vowel.create([
   ])
 User.destroy_all
 barry = User.create!(username: "barry_bluejeans", password: "password")
-conlang = barry.conlangs.create!(name: "Test_conlang")
+conlang = barry.conlangs.create!(
+name: "Test_conlang",
+description: "This is a test conlang"
+)
+conlang2 = barry.conlangs.create!(name: "Test_conlang2", description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.")
+
+titles = "abcdefghijklmnopqrstuvwxyz".split("")
+titles.each do |word|
+  barry.conlangs.create(name: word, description: word)
+end
+
+no_conlangs = User.create!(username: "no_conlangs", password: "noneatall")
+Word.create!([
+  { word: "ʁ", conlang_id: conlang.id },
+  { word: "a", conlang_id: conlang.id },
+  { word: "c", conlang_id: conlang.id }
+  ])

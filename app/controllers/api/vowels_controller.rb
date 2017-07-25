@@ -5,7 +5,11 @@ class Api::VowelsController < ApplicationController
     else
       @vowels = Vowel.all
     end
-    render "api/vowels/index"
+    if params[:chartable]
+      render "api/vowels/chartable_index"
+    else
+      render "api/vowels/index"
+    end
   end
 
   def show

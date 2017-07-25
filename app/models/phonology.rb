@@ -15,6 +15,7 @@ class Phonology < ApplicationRecord
   validates :consonant_inventory, :vowel_inventory,
             presence: true,
             allow_blank: true
+  before_save :convert_to_integers
 
   def consonants
     Consonant.find(consonant_inventory)
@@ -22,5 +23,12 @@ class Phonology < ApplicationRecord
 
   def vowels
     Vowel.find(vowel_inventory)
+  end
+
+  private
+
+  def convert_to_integers
+    consonant_inventory.each(&:to_i)
+    vowel_inventory.each(&:to_i)
   end
 end

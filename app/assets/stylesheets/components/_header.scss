@@ -1,0 +1,18 @@
+header {
+  background: lightgrey;
+  height: 75px;
+  border-bottom: 2px solid grey;
+}
+
+.header-link:hover {
+  text-decoration: none;
+}
+.header-link {
+  h1 {
+    margin-left: 3vw;
+  }
+}
+
+.ipa {
+  font-family: $ipa;
+}

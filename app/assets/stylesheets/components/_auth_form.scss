@@ -1,0 +1,28 @@
+.auth-form-section {
+  .auth-form-box {
+    a {
+      text-decoration: underline;
+    }
+    .login-form {
+      margin-top: 15px;
+      .auth-input {
+        margin: 5px;
+        padding: 0 5px;
+        background: white;
+        border: 1px solid grey;
+        border-radius: 15px;
+      }
+      .auth-submit {
+        border: 1px solid grey;
+        border-radius: 5px;
+        padding: 2px 7px;
+        border: 1px solid $black;
+        background-color: lightgrey;
+        transition: background-color 0.2s;
+      }
+      .auth-submit:hover {
+        background-color: $teal;
+      }
+    }
+  }
+}

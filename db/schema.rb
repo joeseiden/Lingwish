@@ -10,16 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170607205825) do
+ActiveRecord::Schema.define(version: 20170707201959) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "conlangs", force: :cascade do |t|
-    t.string   "name",       null: false
-    t.integer  "user_id",    null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "name",        null: false
+    t.integer  "user_id",     null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.text     "description"
     t.index ["user_id"], name: "index_conlangs_on_user_id", using: :btree
   end
 
@@ -59,6 +60,15 @@ ActiveRecord::Schema.define(version: 20170607205825) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["frontness", "openness", "rounded", "char"], name: "index_vowels_on_frontness_and_openness_and_rounded_and_char", unique: true, using: :btree
+  end
+
+  create_table "words", force: :cascade do |t|
+    t.string   "word",       null: false
+    t.string   "type"
+    t.text     "definition"
+    t.integer  "conlang_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end
