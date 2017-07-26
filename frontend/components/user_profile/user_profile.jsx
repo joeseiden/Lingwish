@@ -28,3 +28,5 @@ class UserProfile extends React.Component {
 }
 
 export default UserProfile;
+
+// Find a way to make the index component DRYer
