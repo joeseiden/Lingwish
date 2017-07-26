@@ -17,6 +17,8 @@ export const editUserProfile = user => dispatch => (
           err => dispatch(receiveErrors(err.responseJSON)))
 );
 
+
+// TODO: Should also log them out if successful. Come back to this.
 export const deleteUserProfile = userId => dispatch => (
   UserAPIUtil.deleteAccount(userId)
     .then(userProfile => dispatch(removeUserProfile(userProfile)),
