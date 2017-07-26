@@ -25,8 +25,9 @@ header {
   display: flex;
   justify-content: space-around;
   margin-right: 1vw;
-  max-width: 150px;
+  max-width: 200px;
   width: 33vw;
+  font-size: 20px;
 }
 
 .greeting-container {
@@ -36,5 +37,10 @@ header {
   .greeting {
     margin: 0;
     font-size: 20px;
+  }
+  #logout-button {
+    border: none;
+    background: none;
+    padding: 0;
   }
 }

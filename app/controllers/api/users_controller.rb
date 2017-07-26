@@ -30,7 +30,7 @@ class Api::UsersController < ApplicationController
   def destroy
     @user = User.find(params[:id])
 
-    if @user.destroy
+    if @user.destroy #maybe monkey-patch this method to allow accounts to be recovered within a certain period of time
       render "api/users/show"
     else
       render json: @user.errors.full_messages, status: 401

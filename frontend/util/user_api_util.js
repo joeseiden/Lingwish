@@ -7,13 +7,14 @@ export const fetchUser = userId => (
 export const editAccount = user => (
   $.ajax({
     type: 'PATCH',
-    url: `api/users/${user.id}`
+    url: `api/users/${user.id}`,
+    user
   })
 );
 
-export const deleteAccount = user => (
+export const deleteAccount = userId => (
   $.ajax({
     type: 'DELETE',
-    url: `api/users/${user.id}`
+    url: `api/users/${userId}`
   })
 );
