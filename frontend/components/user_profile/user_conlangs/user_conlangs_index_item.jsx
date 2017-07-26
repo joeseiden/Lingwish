@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import classNames from 'classnames';
+import classNames from 'classNames';
 
-class ConlangIndexItem extends React.Component {
+class UserConlangsIndexItem extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -16,7 +16,6 @@ class ConlangIndexItem extends React.Component {
     this.setState({abbreviated: !this.state.abbreviated});
   }
 
-
   render() {
     const conlang = this.props.conlang;
     let descriptionClasses = classNames({
@@ -29,20 +28,13 @@ class ConlangIndexItem extends React.Component {
           <Link to={`/conlangs/${conlang.id}`}>
             {conlang.name}
           </Link>
-          <span> by&nbsp;
-            <Link to={`/users/${conlang.author.id}`}>
-              <name>
-                {conlang.author.username}
-              </name>
-            </Link>
-          </span>
+          <p className={descriptionClasses} onClick={this.toggleAbbreviation}>
+            {conlang.description}
+          </p>
         </div>
-        <p className={descriptionClasses} onClick={this.toggleAbbreviation}>
-          {conlang.description}
-        </p>
       </li>
     );
   }
 }
 
-export default ConlangIndexItem;
+export default UserConlangsIndexItem;
