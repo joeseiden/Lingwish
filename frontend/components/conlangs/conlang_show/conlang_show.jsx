@@ -14,7 +14,7 @@ class ConlangShow extends React.Component {
   }
 
   componentWillReceiveProps(newProps) {
-    if (this.props.conlangId !== newProps.conlangId){
+    if (this.props.location !== newProps.location){
       this.props.requestSingleConlang(newProps.conlangId);
     }
   }

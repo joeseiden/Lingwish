@@ -13,7 +13,6 @@ class ConlangIndex extends React.Component {
       perPage: 10,
       isMenuOpen: false
     };
-
     this.handlePageChange = this.handlePageChange.bind(this);
     this.changePerPageCount = this.changePerPageCount.bind(this);
     this.toggleMenu = this.toggleMenu.bind(this);

@@ -5,7 +5,7 @@ import { receiveErrors } from './errors_actions';
 export const RECEIVE_USER_PROFILE = "RECEIVE_USER_PROFILE";
 export const REMOVE_USER_PROFILE = "REMOVE_USER_PROFILE";
 
-export const fetchUserProfile = userId => dispatch => (
+export const requestUserProfile = userId => dispatch => (
   UserAPIUtil.fetchUser(userId)
     .then(userProfile => dispatch(receiveUserProfile(userProfile)),
           err => dispatch(receiveErrors(err.responseJSON)))

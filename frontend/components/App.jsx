@@ -12,6 +12,7 @@ import HomePageContainer from './home_page/home_page_container';
 import ConlangShowContainer from './conlangs/conlang_show/conlang_show_container';
 import ConlangIndexContainer from './conlangs/conlang_index/conlang_index_container';
 import RightNavContainer from './header/right_nav_container';
+import UserProfileContainer from './user_profile/user_profile_container';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
 
 
@@ -28,6 +29,7 @@ const App = (props) => (
     <Switch>
       <AuthRoute path="/login" component={AuthFormContainer} />
       <AuthRoute path="/signup" component={AuthFormContainer} />
+      <Route path="/users/:userId" component={UserProfileContainer} />
       <Route path="/conlangs/:conlangId" component={ConlangShowContainer} />
       <Route path="/conlangs" component={ConlangIndexContainer} />
       <Route exact path="/" component={HomePageContainer} />
