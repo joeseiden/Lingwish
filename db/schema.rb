@@ -40,7 +40,7 @@ ActiveRecord::Schema.define(version: 20170801215403) do
     t.integer  "conlang_id",                       null: false
     t.datetime "created_at",                       null: false
     t.datetime "updated_at",                       null: false
-    t.string   "syllables",                                     array: true
+    t.string   "syllables",           default: [],              array: true
   end
 
   create_table "users", force: :cascade do |t|
