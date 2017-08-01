@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import classNames from 'classNames';
+import classNames from 'classnames';
 
 class UserConlangsIndexItem extends React.Component {
   constructor(props) {
