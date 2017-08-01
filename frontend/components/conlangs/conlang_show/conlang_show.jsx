@@ -14,7 +14,7 @@ class ConlangShow extends React.Component {
   }
 
   componentWillReceiveProps(newProps) {
-    if (this.props.conlangId !== newProps.conlangId){
+    if (this.props.location !== newProps.location){
       this.props.requestSingleConlang(newProps.conlangId);
     }
   }
@@ -26,10 +26,12 @@ class ConlangShow extends React.Component {
     const description = conlang.description ? conlang.description : "No description";
 
     return (
-      <section className="conlang-show">
+      <section className="conlang-show-section main-section">
         <div className="conlang-show-header">
           <h2 className="conlang-title">{conlang.name}</h2>
           <span>Created by <Link to="/"><name>{conlang.author.username}</name></Link></span>
+          <br/>
+          <br/>
           <p className="conlang-description">{description}</p>
         </div>
         <PhonologyContainer

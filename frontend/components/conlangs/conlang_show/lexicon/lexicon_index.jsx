@@ -33,7 +33,7 @@ class LexiconIndex extends React.Component {
 
     return (
       <section className="lexicon">
-        <h3>Lexicon</h3>
+        <h2>Lexicon</h2>
         <div className="lexicon-index-container">
           <ul className="lexicon-index">
             {this.props.words.map((word, idx) => <LexiconIndexItem

@@ -24,6 +24,9 @@ class AuthForm extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
+    if (this.props.formType!==nextProps.formType) {
+      this.props.clearErrors();
+    }
     if (nextProps.loggedIn) {
       this.props.history.push('/');
     }
@@ -45,9 +48,9 @@ class AuthForm extends React.Component {
 
   renderErrors() {
     return(
-      <ul>
+      <ul className="errors">
         {this.props.errors.map((error, i) => (
-          <li key={`error-${i}`}>
+          <li className="animated shake" key={`error-${i}`}>
             {error}
           </li>
         ))}
@@ -57,15 +60,13 @@ class AuthForm extends React.Component {
 
   render () {
     return (
-      <div className="auth-form-container">
+      <section className="auth-form-section main-section">
         <form onSubmit={this.handleSubmit} className="auth-form-box">
-          Welcome to Lingwish!
-          <br/>
+          <h3>Welcome to Lingwish!</h3>
           Please {this.props.formType} or {this.navLink()}
           {this.renderErrors()}
           <div className="login-form">
-            <br/>
-            <label>Username:
+            <label>Username
               <input type="text"
                 value={this.state.username}
                 onChange={this.update('username')}
@@ -73,7 +74,8 @@ class AuthForm extends React.Component {
                 className="auth-input"
                 />
             </label>
-            <label>password:
+            <br/>
+            <label>Password
               <input type="password"
                 value={this.state.password}
                 onChange={this.update('password')}
@@ -88,7 +90,7 @@ class AuthForm extends React.Component {
               />
           </div>
         </form>
-      </div>
+      </section>
     );
   }
 }

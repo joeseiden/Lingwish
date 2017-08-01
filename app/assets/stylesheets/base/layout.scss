@@ -7,7 +7,16 @@ h2 {
 }
 
 h3 {
-  font-size: 28px;
+  font-size: 24px;
+}
+
+h1, h2, h3 {
+  font-family: $opensans;
+}
+
+body {
+  font-family: $roboto;
+  background: $lightbeige;
 }
 
 .ipa {
@@ -52,4 +61,8 @@ a:hover, button:hover {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.main-section {
+  margin: 0 5vw;
 }

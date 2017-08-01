@@ -2,25 +2,22 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Pagination from 'react-js-pagination';
 import DropdownMenu from 'react-dd-menu';
-import ConlangIndexItem from './conlang_index_item';
+import UserConlangsIndexItem from './user_conlangs_index_item';
 import classNames from 'classnames';
 
-class ConlangIndex extends React.Component {
+class UserConlangsIndex extends React.Component {
   constructor (props) {
     super(props);
     this.state = {
       activePage: 1,
-      perPage: 10,
+      perPage: 5,
       isMenuOpen: false
     };
+
     this.handlePageChange = this.handlePageChange.bind(this);
     this.changePerPageCount = this.changePerPageCount.bind(this);
     this.toggleMenu = this.toggleMenu.bind(this);
     this.closeMenu = this.closeMenu.bind(this);
-  }
-
-  componentWillMount() {
-    this.props.requestConlangIndex();
   }
 
   toggleMenu() {
@@ -40,7 +37,6 @@ class ConlangIndex extends React.Component {
     this.setState({perPage: perPageCount});
   }
 
-
   render() {
     const conlangs = this.props.conlangs;
     const totalItemCount = conlangs.length;
@@ -52,16 +48,15 @@ class ConlangIndex extends React.Component {
     let currentPageConlangs = conlangs.slice(startIdx, endIdx);
 
     return (
-      <section className="conlang-index-section main-section">
+      <div className="user-conlang-index-section conlang-index-section">
         <h2>Conlangs</h2>
-        <ul className="conlang-index">
+        <ul className="conlang-index user-conlang-index">
           {currentPageConlangs.map((conlang, idx) => (
-            <ConlangIndexItem
+            <UserConlangsIndexItem
               key={`conlang-${idx}`}
               conlang={conlang}
               />
-            )
-          )}
+          ))}
         </ul>
         <div className="index-settings">
           <Pagination
@@ -95,10 +90,10 @@ class ConlangIndex extends React.Component {
               );
             })}
             </DropdownMenu>
-          </div>
-      </section>
+        </div>
+      </div>
     );
   }
 }
 
-export default ConlangIndex;
+export default UserConlangsIndex;

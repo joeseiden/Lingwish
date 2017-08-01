@@ -1,0 +1,18 @@
+.conlang-show-section {
+  .conlang-show-header {
+    margin: 5px 0;
+    .conlang-title {
+      font-size: 36px;
+      font-weight: bold;
+    }
+    p {
+      position: relative;
+      left: 15px;
+    }
+  }
+  section {
+    h2 {
+      text-decoration: underline;
+    }
+  }
+}
