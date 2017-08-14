@@ -12,10 +12,10 @@
 
 class Phonology < ApplicationRecord
   belongs_to :conlang
-  validates :consonant_inventory, :vowel_inventory,
+  validates :consonant_inventory, :vowel_inventory, :syllables,
             presence: true,
             allow_blank: true
-  before_save :convert_to_integers
+  before_save :convert_to_integers, :validate_syllables
 
   def consonants
     Consonant.find(consonant_inventory)
@@ -26,6 +26,12 @@ class Phonology < ApplicationRecord
   end
 
   private
+
+  def validate_syllables
+    if !syllables.is_a?(Array) || syllables.detect { |el| !el =~ /^[C]*[V]+[C]*$/ }
+      errors.add(:syllables, :invalid)
+    end
+  end
 
   def convert_to_integers
     consonant_inventory.each(&:to_i)

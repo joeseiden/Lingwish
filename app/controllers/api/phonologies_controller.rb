@@ -15,25 +15,25 @@ class Api::PhonologiesController < ApplicationController
     if params[:phonology]
       phonology_params = params.require(:phonology).permit(
                                       consonant_inventory: [],
-                                      vowel_inventory: []
+                                      vowel_inventory: [],
+                                      syllables: []
       )
     else
       phonology_params = ActionController::Parameters.new(
         phonology: {
           consonant_inventory: [],
-          vowel_inventory: []
+          vowel_inventory: [],
+          syllables: []
         }
-      ).require(:phonology).permit(consonant_inventory: [], vowel_inventory: [])
+      ).require(:phonology).permit(consonant_inventory: [], vowel_inventory: [], syllables: [])
     end
 
-    unless phonology_params.key?(:consonant_inventory)
-      phonology_params[:consonant_inventory] = []
+    [:consonant_inventory, :vowel_inventory, :syllables].each do |param|
+      unless phonology_params.key?(param)
+        phonology_params[param] = []
+      end
     end
 
-    unless phonology_params.key?(:vowel_inventory)
-      phonology_params[:vowel_inventory] = []
-    end
-    
     phonology_params
   end
 
