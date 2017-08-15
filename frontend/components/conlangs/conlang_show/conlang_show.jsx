@@ -3,10 +3,14 @@ import ReactDOM from 'react-dom';
 import { Link } from 'react-router-dom';
 import LexiconIndexContainer from './lexicon/lexicon_index_container';
 import PhonologyContainer from './phonology/phonology_container';
+import ConlangHeaderShow from './conlang_header_show';
 
 class ConlangShow extends React.Component {
   constructor (props) {
     super(props);
+    this.state = {
+      name: props.conlang.name
+    };
   }
 
   componentWillMount() {
@@ -19,10 +23,21 @@ class ConlangShow extends React.Component {
     }
   }
 
+  update(field) {
+    return (e) => {
+      this.setState({[field]: e.target.value});
+    };
+  }
+
+  handleSubmit(e) {
+    e.preventDefault();
+    const conlang = this.state;
+  }
+
   render() {
     const conlang = this.props.conlang;
     if (!conlang.id) { return null; }
-
+    console.log(this.state);
     const description = conlang.description ? conlang.description : "No description";
 
     return (
