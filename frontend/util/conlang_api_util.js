@@ -12,7 +12,7 @@ export const fetchConlangIndex = () => (
 
 export const updateConlang = (userId, conlang) => (
   $.ajax({
-    type: 'PATCH'
+    type: 'PATCH',
     url:`api/users/${userId}/conlangs/${conlang.id}`,
     data: {conlang}
   })

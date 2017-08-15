@@ -9,6 +9,7 @@ class ConlangShow extends React.Component {
   constructor (props) {
     super(props);
     this.state = props.conlang;
+
   }
 
   componentWillMount() {
@@ -38,7 +39,7 @@ class ConlangShow extends React.Component {
   render() {
     const conlang = this.state;
     if (!conlang.id) { return null; }
-    console.log(conlang);
+    console.log(this.props.conlangAuthor);
     const description = conlang.description ? conlang.description : "No description";
 
     return (
