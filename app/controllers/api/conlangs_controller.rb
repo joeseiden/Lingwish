@@ -31,7 +31,7 @@ class Api::ConlangsController < ApplicationController
   end
 
   def update
-    @conlang = Conlang.includes(:phonology).find(params[:id])
+    @conlang = Conlang.find(params[:id])
 
     if @conlang.update(conlang_params)
       render "api/conlangs/show"
@@ -53,6 +53,6 @@ class Api::ConlangsController < ApplicationController
   private
 
   def conlang_params
-    params.require(:conlang).permit(:name)
+    params.require(:conlang).permit(:name, :description)
   end
 end

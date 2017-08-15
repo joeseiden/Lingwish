@@ -8,9 +8,7 @@ import ConlangHeaderShow from './conlang_header_show';
 class ConlangShow extends React.Component {
   constructor (props) {
     super(props);
-    this.state = {
-      name: props.conlang.name
-    };
+    this.state = props.conlang;
   }
 
   componentWillMount() {
@@ -20,6 +18,9 @@ class ConlangShow extends React.Component {
   componentWillReceiveProps(newProps) {
     if (this.props.location !== newProps.location){
       this.props.requestSingleConlang(newProps.conlangId);
+    }
+    if (newProps.conlang) {
+      this.setState(newProps.conlang);
     }
   }
 
@@ -35,9 +36,9 @@ class ConlangShow extends React.Component {
   }
 
   render() {
-    const conlang = this.props.conlang;
+    const conlang = this.state;
     if (!conlang.id) { return null; }
-    console.log(this.state);
+    console.log(conlang);
     const description = conlang.description ? conlang.description : "No description";
 
     return (
