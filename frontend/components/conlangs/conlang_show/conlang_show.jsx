@@ -5,14 +5,19 @@ import LexiconIndexContainer from './lexicon/lexicon_index_container';
 import PhonologyContainer from './phonology/phonology_container';
 import ConlangHeaderShow from './conlang_header_show';
 import ConlangHeaderEdit from './conlang_header_edit';
+import update from 'immutability-helper';
 
 class ConlangShow extends React.Component {
   constructor (props) {
     super(props);
-    this.state = props.conlang;
+    this.state = {
+      conlang: props.conlang,
+      editing: false
+    }
 
     this.update = this.update.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.toggleEditing = this.toggleEditing.bind(this);
   }
 
   componentWillMount() {
@@ -24,37 +29,47 @@ class ConlangShow extends React.Component {
       this.props.requestSingleConlang(newProps.conlangId);
     }
     if (newProps.conlang) {
-      this.setState(newProps.conlang);
+      this.setState({conlang: newProps.conlang});
     }
   }
 
   update(field) {
     return (e) => {
-      this.setState({[field]: e.target.value});
+      const newConlang = update(this.state.conlang, {[field]: {$set: e.target.value}});
+      this.setState({conlang: newConlang})
     };
   }
 
   handleSubmit(e) {
     e.preventDefault();
-    const conlang = this.state;
+    const conlang = this.state.conlang;
+    if (this.props.conlangAuthor) {
+      this.props.updateConlang(this.props.currentUserId, conlang);
+      this.toggleEditing();
+    }
+  }
+
+  toggleEditing() {
+    this.setState({editing: !this.state.editing});
   }
 
   render() {
-    const conlang = this.state;
+    const conlang = this.state.conlang;
     if (!conlang.id) { return null; }
-    console.log(this.props.conlangAuthor);
     const description = conlang.description ? conlang.description : "No description";
-
+    const _renderHeader = () => {
+      if (this.state.editing) {
+        return (
+          <ConlangHeaderEdit conlang={conlang} update={this.update} handleSubmit={this.handleSubmit} toggleEditing={this.toggleEditing}/>)
+      } else {
+        return (
+          <ConlangHeaderShow conlang={conlang} toggleEditing={this.toggleEditing} conlangAuthor={this.props.conlangAuthor}/>
+        )
+      }
+    }
     return (
       <section className="conlang-show-section main-section">
-        <div className="conlang-show-header">
-          <h2 className="conlang-title">{conlang.name}</h2>
-          <span>Created by <Link to="/"><name>{conlang.author.username}</name></Link></span>
-          <br/>
-          <br/>
-          <p className="conlang-description">{description}</p>
-        </div>
-        <ConlangHeaderEdit conlang={conlang} update={this.update} handleSubmit={this.handleSubmit}/>
+        {_renderHeader()}
         <PhonologyContainer
           conlangId={conlang.id}
           phonology={conlang.phonology}

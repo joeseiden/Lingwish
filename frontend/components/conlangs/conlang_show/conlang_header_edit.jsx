@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 
 const ConlangHeaderEdit = props => {
   const conlang = props.conlang;
+  const name = conlang.name;
   const description = conlang.description;
   return (
     <div className="conlang-show-header">
@@ -13,7 +14,7 @@ const ConlangHeaderEdit = props => {
             value={conlang.name}
             onChange={props.update('name')}
             placeholder="Conlang Name"></input></h2>
-        <span>Created by <Link to="/"><name>{conlang.author.username}</name></Link></span>
+          <span>Created by <name>{conlang.author.username}</name></span>
         <br/>
         <br/>
         <textarea className="conlang-description"
@@ -23,8 +24,10 @@ const ConlangHeaderEdit = props => {
           onChange={props.update('description')}>
         </textarea>
         <input type="submit"
-          value="Save Changes"/>
+          value="Save Changes"
+          className="submit"/>
       </form>
+      <button className="cancel-button" onClick={props.toggleEditing}>Cancel</button>
     </div>
   );
 };

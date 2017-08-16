@@ -10,8 +10,8 @@ import { clearErrors } from '../../../actions/errors_actions';
 const mapStateToProps = (state, ownProps) => {
   const loggedIn = Boolean(state.session.currentUser)
   const conlang = state.conlangDetail
-  const currentUserId = state.session.currentUser.id
-  const authorId = conlang.author ? conlang.author.id : 0
+  const currentUserId = loggedIn ? state.session.currentUser.id : null
+  const authorId = conlang.author ? conlang.author.id : null
 
   return ({
   conlangId: parseInt(ownProps.match.params.conlangId),

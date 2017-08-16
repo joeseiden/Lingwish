@@ -66,3 +66,15 @@ a:hover, button:hover {
 .main-section {
   margin: 0 5vw;
 }
+
+.submit {
+  border: 1px solid grey;
+  border-radius: 5px;
+  padding: 2px 7px;
+  border: 1px solid $black;
+  background-color: lightgrey;
+  transition: background-color 0.2s;
+}
+.submit:hover {
+  background-color: $teal;
+}
