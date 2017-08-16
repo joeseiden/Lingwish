@@ -4,12 +4,15 @@ import { Link } from 'react-router-dom';
 import LexiconIndexContainer from './lexicon/lexicon_index_container';
 import PhonologyContainer from './phonology/phonology_container';
 import ConlangHeaderShow from './conlang_header_show';
+import ConlangHeaderEdit from './conlang_header_edit';
 
 class ConlangShow extends React.Component {
   constructor (props) {
     super(props);
     this.state = props.conlang;
 
+    this.update = this.update.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   componentWillMount() {
@@ -51,6 +54,7 @@ class ConlangShow extends React.Component {
           <br/>
           <p className="conlang-description">{description}</p>
         </div>
+        <ConlangHeaderEdit conlang={conlang} update={this.update} handleSubmit={this.handleSubmit}/>
         <PhonologyContainer
           conlangId={conlang.id}
           phonology={conlang.phonology}
