@@ -1,0 +1,3 @@
+class WordGenerator
+
+end
