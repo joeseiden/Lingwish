@@ -11,7 +11,30 @@ class SyllableGenerator
   end
 
   def generate_syllable
+    onset = generate_consonant_cluster(@onset_count)
+    nucleus = generate_vowel_cluster(@nucleus_count)
+    coda = generate_consonant_cluster(@coda_count)
+    return onset + nucleus + coda
+  end
 
+  def generate_consonant_cluster(count)
+    cluster = ""
+    rand(count + 1).times do |i|
+      cluster += @consonants.sample
+    end
+    cluster
+  end
+
+  def generate_vowel_cluster(count)
+    cluster = ""
+    length = rand(count + 1)
+    if length == 0
+      length = 1
+    end
+    length.times do |i|
+      cluster += @vowels.sample
+    end
+    cluster
   end
 
   def calculate_onset_count
@@ -36,3 +59,5 @@ class SyllableGenerator
     @structure.count("V")
   end
 end
+
+sg = SyllableGenerator.new(["p", "k", "t"], ["a", "i", "u", "e", "o"], "CVC")
