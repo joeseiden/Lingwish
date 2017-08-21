@@ -17,6 +17,12 @@ export const requestSingleConlang = id => dispatch => (
           err => dispatch(receiveErrors(err.responseJSON)))
 );
 
+export const updateConlang = (userId, conlang) => dispatch => (
+  ConlangAPIUtil.updateConlang(userId, conlang)
+    .then(res => dispatch(receiveSingleConlang(res)),
+          err => dispatch(receiveErrors(err.responseJSON)))
+);
+
 export const receiveConlangs = conlangs => ({
   type: RECEIVE_CONLANGS,
   conlangs
