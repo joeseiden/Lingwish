@@ -1,8 +1,9 @@
 class SyllableGenerator
 
   def initialize(consonants, vowels, structure="CV")
+    # Write a method to validate all of these and raise an error instead of just having nil instance variables
     @structure = structure if structure.is_a?(String) && structure =~ /^[C]*[V]+[C]*$/
-    @consonants = consonants if consonants.is_a?(Array)
+    @consonants = consonants
     @vowels = vowels if vowels.is_a?(Array)
 
     @onset_count = calculate_onset_count
@@ -27,15 +28,13 @@ class SyllableGenerator
 
   def generate_vowel_cluster(count)
     cluster = ""
-    length = rand(count + 1)
-    if length == 0
-      length = 1
-    end
-    length.times do |i|
+    (rand(count) + 1).times do |i|
       cluster += @vowels.sample
     end
     cluster
   end
+
+  private
 
   def calculate_onset_count
     count = 0
@@ -59,5 +58,3 @@ class SyllableGenerator
     @structure.count("V")
   end
 end
-
-sg = SyllableGenerator.new(["p", "k", "t"], ["a", "i", "u", "e", "o"], "CVC")
