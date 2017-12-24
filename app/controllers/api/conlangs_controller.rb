@@ -41,7 +41,7 @@ class Api::ConlangsController < ApplicationController
   end
 
   def destroy
-    @conlang = Conlang.includse(:phonology).find(params[:id])
+    @conlang = Conlang.includes(:phonology).find(params[:id])
 
     if @conlang.destroy
       render "api/conlangs/show"
